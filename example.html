@@ -1,0 +1,28 @@
+<DOCTYPE html>
+<html>
+<head>
+  <title>Ajax Form Post to Google Form</title>
+</head>
+<body>
+  <h1>Collect an email address with Google Form</h1>
+  <form action="https://docs.google.com/spreadsheet/formResponse">
+    <input type="text" name="entry.0.single" id="entry_0">
+    <input type="hidden" name="formkey" value="dHlFQTMyUml5c2UyWTRZTmNaTWtWVlE6MQ">
+    <input type="submit" value="Sign Up">
+  </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="googleize-form.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    jQuery('form').GoogleizeForm({
+      success: function () {
+        alert('Thanks for your email address!');
+      },
+      invalidEmail: function (field) {
+        alert('Please provide a valid email address.');
+        field.focus();
+      }
+    });
+  </script>
+</body>
+</html>
